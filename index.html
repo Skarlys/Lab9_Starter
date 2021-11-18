@@ -87,6 +87,14 @@
     </section>
   </main>
 
+
+  <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+  <script>
+    window.TrackJS && TrackJS.install({ 
+    token: "df84828fcf66454ba8e2ce7e954a7ab1"
+  // for more configuration options, see https://docs.trackjs.com
+  });
+</script>
   <script>
     let form = document.querySelector('form');
     form.addEventListener('submit', e => {
@@ -102,6 +110,92 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+
+
+    //buttons pt. 2
+    errorBtns[0].addEventListener('click', event =>{
+      console.log('log');
+    })
+    errorBtns[1].addEventListener('click', event =>{
+      console.error('error');
+    })
+    errorBtns[2].addEventListener('click', event =>{
+      console.count('count');
+    })
+    errorBtns[3].addEventListener('click', event =>{
+      console.warn('warn');
+    })
+    errorBtns[4].addEventListener('click', event =>{
+      console.assert(1 == 2, 'it aint true');
+    })
+    errorBtns[5].addEventListener('click', event =>{
+      console.clear();
+    })
+    errorBtns[6].addEventListener('click', event =>{
+      console.dir(document.head);
+    })
+    errorBtns[7].addEventListener('click', event =>{
+      console.dirxml(document);
+    })
+    const label = 'snacks';
+    errorBtns[8].addEventListener('click', event =>{
+      
+      console.group(label);
+      console.info('chips');
+      console.info('chocolate');
+      console.info('boba');
+
+    })
+    errorBtns[9].addEventListener('click', event =>{
+      console.groupEnd('label');
+    })
+    errorBtns[10].addEventListener('click', event =>{
+      console.table([
+    {
+      food: 'lasagna',
+      drink: 'tea',
+    },
+    {
+      food: 'pasta',
+      drink: 'aloe',
+      snack: 'pocky',
+    }
+    ]);
+    })
+    errorBtns[11].addEventListener('click', event =>{
+      console.time();
+      for (var i = 0; i < 100000; i++) {
+        let square = i ** 2;
+      }
+    })
+    errorBtns[12].addEventListener('click', event =>{
+      console.timeEnd();
+    })
+    errorBtns[13].addEventListener('click', event =>{
+      const first = () => { second(); };
+      const second = () => { third(); };
+      const third = () => { fourth(); };
+      const fourth = () => { console.trace(); };
+      first();
+    })
+    errorBtns[14].addEventListener('click', event =>{
+      globalerror;
+    })
+
+    //try catch pt. 3
+
+    try {
+
+      errorBtns.getElementById('this aint gonna work');
+
+    } catch (err) {
+
+    // error handling
+      console.log('IT DIDNT WORK LADS');
+      throw new Error('special error');
+    } finally {
+      console.log('I wanna play tft :(');
+    }
   </script>
 </body>
 
